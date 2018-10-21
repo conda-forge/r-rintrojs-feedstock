@@ -16,7 +16,7 @@ source:
 
 build:
   skip: true  # [win32]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -49,6 +49,7 @@ about:
 
 extra:
    recipe-maintainers:
+    - dpryan79
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
