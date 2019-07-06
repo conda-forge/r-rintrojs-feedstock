@@ -1,4 +1,4 @@
-{% set version = '0.2.0' %}
+{% set version = '0.2.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,26 +7,26 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: rintrojs_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/rintrojs_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/rintrojs/rintrojs_{{ version }}.tar.gz
-
-  sha256: 2252abed788353a730def25ef9d3aa76c5325365bea208a6792532e310f2b961
+    - {{ cran_mirror }}/src/contrib/rintrojs_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/rintrojs/rintrojs_{{ version }}.tar.gz
+  sha256: 4790c168f013698feff3c65224459b5b58cd1253e164d59ad222c0ecef58d86f
 
 build:
+  merge_build_host: True  # [win]
+  number: 0
   noarch: generic
-  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-jsonlite
     - r-shiny
-
   run:
     - r-base
     - r-jsonlite
@@ -34,26 +34,43 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('rintrojs')"  # [not win]
+    - $R -e "library('rintrojs')"           # [not win]
     - "\"%R%\" -e \"library('rintrojs')\""  # [win]
 
 about:
   home: https://github.com/carlganz/rintrojs
   license: AGPL-3
-  summary: |
-    A wrapper for the "Intro.js" library (http://www.introjs.com).
-    This package makes it easy to include step-by-step introductions, and clickable hints
-    in a "Shiny" application. It supports both static introductions in the UI, and
-    programmatic introductions from  the server-side.
+  summary: 'A wrapper for the ''Intro.js'' library (For more info: <http://www.introjs.com>).  This
+    package makes it easy to include step-by-step introductions, and clickable hints
+    in a ''Shiny''  application. It supports both static introductions in the UI, and
+    programmatic introductions from  the server-side. '
   license_family: AGPL
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/AGPL-3'
 
 extra:
-   recipe-maintainers:
-    - dpryan79
+  recipe-maintainers:
+    - conda-forge/r
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
+
+# Package: rintrojs
+# Type: Package
+# Title: Wrapper for the 'Intro.js' Library
+# Version: 0.2.2
+# Authors@R: c( person("Carl", "Ganz", email = "carlganz@gmail.com", role = c("aut", "cre")), person("Afshin", "Mehrabani", role = c("ctb","cph"), comment = "intro.js in javascript/introjs") )
+# Description: A wrapper for the 'Intro.js' library (For more info: <http://www.introjs.com>).  This package makes it easy to include step-by-step introductions, and clickable hints in a 'Shiny'  application. It supports both static introductions in the UI, and programmatic introductions from  the server-side.
+# License: AGPL-3
+# LazyData: TRUE
+# Imports: shiny, jsonlite
+# Depends: R (>= 3.0.0)
+# RoxygenNote: 6.1.1
+# URL: https://github.com/carlganz/rintrojs
+# BugReports: https://github.com/carlganz/rintrojs/issues
+# Suggests: testthat, covr
+# NeedsCompilation: no
+# Packaged: 2019-05-29 21:06:20 UTC; carlganz
+# Author: Carl Ganz [aut, cre], Afshin Mehrabani [ctb, cph] (intro.js in javascript/introjs)
+# Maintainer: Carl Ganz <carlganz@gmail.com>
+# Repository: CRAN
+# Date/Publication: 2019-05-29 21:30:04 UTC
