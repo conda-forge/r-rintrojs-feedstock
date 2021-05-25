@@ -39,7 +39,7 @@ test:
 
 about:
   home: https://github.com/carlganz/rintrojs
-  license: AGPL-3
+  license: AGPL-3.0-only
   summary: 'A wrapper for the ''Intro.js'' library (For more info: <http://www.introjs.com>).  This
     package makes it easy to include step-by-step introductions, and clickable hints
     in a ''Shiny''  application. It supports both static introductions in the UI, and
