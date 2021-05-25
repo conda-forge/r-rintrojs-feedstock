@@ -3,7 +3,7 @@ About r-rintrojs
 
 Home: https://github.com/carlganz/rintrojs
 
-Package license: AGPL-3
+Package license: AGPL-3.0-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rintrojs-feedstock/blob/master/LICENSE.txt)
 
