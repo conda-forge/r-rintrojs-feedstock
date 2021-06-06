@@ -1,4 +1,4 @@
-{% set version = '0.2.2' %}
+{% set version = "0.3.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rintrojs_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rintrojs/rintrojs_{{ version }}.tar.gz
-  sha256: 4790c168f013698feff3c65224459b5b58cd1253e164d59ad222c0ecef58d86f
+  sha256: dc5f171f99772e9fcc5b0052841a5c28b1684cb971863adc9a7dc807d0ac8502
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -40,12 +40,9 @@ test:
 about:
   home: https://github.com/carlganz/rintrojs
   license: AGPL-3.0-only
-  summary: 'A wrapper for the ''Intro.js'' library (For more info: <http://www.introjs.com>).  This
-    package makes it easy to include step-by-step introductions, and clickable hints
-    in a ''Shiny''  application. It supports both static introductions in the UI, and
-    programmatic introductions from  the server-side. '
+  summary: "A wrapper for the 'Intro.js' library (For more info: <http://www.introjs.com>).  This package makes it easy to include step-by-step introductions, and clickable hints in a 'Shiny'  application. It supports both static introductions in the UI, and programmatic introductions from  the server-side. "
   license_family: AGPL
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/AGPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/AGPL-3
 
 extra:
   recipe-maintainers:
