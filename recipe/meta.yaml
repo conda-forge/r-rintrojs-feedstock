@@ -1,4 +1,4 @@
-{% set version = "0.3.0" %}
+{% set version = "0.3.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rintrojs_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rintrojs/rintrojs_{{ version }}.tar.gz
-  sha256: dc5f171f99772e9fcc5b0052841a5c28b1684cb971863adc9a7dc807d0ac8502
+  sha256: 50cb2a1bb15ec987044d30f441e35f0bdd327ae7ab46bb12e341671804c197a6
 
 build:
   merge_build_host: true  # [win]
