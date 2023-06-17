@@ -1,11 +1,11 @@
-About r-rintrojs
-================
+About r-rintrojs-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rintrojs-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/carlganz/rintrojs
 
 Package license: AGPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rintrojs-feedstock/blob/main/LICENSE.txt)
 
 Summary: A wrapper for the 'Intro.js' library (For more info: <http://www.introjs.com>).  This package makes it easy to include step-by-step introductions, and clickable hints in a 'Shiny'  application. It supports both static introductions in the UI, and programmatic introductions from  the server-side. 
 
